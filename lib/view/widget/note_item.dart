@@ -8,10 +8,10 @@ class NoteItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Color(0xffFFCC85),
+        color: const Color(0xffFFCC85),
         borderRadius: BorderRadius.circular(16),
       ),
-      padding: EdgeInsets.symmetric(horizontal: 24,vertical: 24),
+      padding: const EdgeInsets.symmetric(horizontal: 24,vertical: 24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
@@ -25,7 +25,7 @@ class NoteItem extends StatelessWidget {
               padding: const EdgeInsets.only(top: 16),
               child: Text('First notes how are you my friend good job ',style: TextStyle(
                 color: Colors.black.withOpacity(.5),
-                fontSize: 20,
+                fontSize: 18,
               ),),
             ),
             trailing: IconButton(onPressed: (){},
