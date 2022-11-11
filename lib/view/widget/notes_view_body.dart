@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp/view/widget/custom_appbar.dart';
-
-import 'note_item.dart';
+import 'notes_listview.dart';
 
 class NotesViewBody extends StatelessWidget {
   const NotesViewBody({Key? key}) : super(key: key);
@@ -11,11 +10,12 @@ class NotesViewBody extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24),
       child: Column(
-        children: [
+        children: const [
           SizedBox(height: 25
             ,),
-          CustomAppBar(),
-          NoteItem(),
+           CustomAppBar(),
+          Expanded(
+              child:  NotesListview()),
         ],
       ),
     );
