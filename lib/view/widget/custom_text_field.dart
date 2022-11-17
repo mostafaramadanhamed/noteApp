@@ -6,17 +6,17 @@ class CustomTextFiled extends StatelessWidget {
   CustomTextFiled({
     this.onChange ,
     required this.hint,
-    required this.type,
+     this.maxLines=1,
   }) ;
-  String ?hint;
+ final String ?hint;
   Function(String) ? onChange;
-  TextInputType type;
+  final int maxLines;
   @override
   Widget build(BuildContext context) {
     return Center(
       child: TextField(
-        keyboardType: type,
         onChanged: onChange,
+        maxLines: maxLines,
         cursorColor: KPrimaryColor,
         decoration: InputDecoration(
         //  fillColor: SBackgroundColor,
