@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:whatsapp/view/widget/custom_appbar.dart';
+import 'package:whatsapp/view/widget/custom_text_field.dart';
 
 class EditNotesViewBody extends StatelessWidget {
   const EditNotesViewBody({Key? key}) : super(key: key);
@@ -18,6 +19,14 @@ class EditNotesViewBody extends StatelessWidget {
           icon: FontAwesomeIcons.check,
           title: 'Edit Note',
         ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height/30,
+          ),
+          CustomTextFiled(hint: 'Title',),
+          SizedBox(
+            height: MediaQuery.of(context).size.height/30,
+          ),
+          CustomTextFiled(hint: 'Desc',maxLines: 5,),
 
         ],
       ),
