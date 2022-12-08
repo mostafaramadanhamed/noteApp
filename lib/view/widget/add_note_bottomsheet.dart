@@ -8,8 +8,8 @@ class AddNoteBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.0),
+    return  Padding(
+      padding: EdgeInsets.symmetric(horizontal:MediaQuery.of(context).size.height/50),
       child: AddNoteForm(),
     );
   }
@@ -36,18 +36,32 @@ class _AddNoteFormState extends State<AddNoteForm> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 16.0),
-          child: CustomTextFiled( hint: 'Title',),
+          padding:  EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height/50),
+          child: CustomTextFiled( hint: 'Title',onSaved: (val){
+            title=val;
+          },),
         ),
-        CustomTextFiled(hint: 'Details',maxLines: 5,),
-        const Spacer(),
+        CustomTextFiled(hint: 'Details',maxLines: 5,onSaved: (val){
+          subTitle=val;
+        },),
+         SizedBox(
+          height: MediaQuery.of(context).size.height/20,
+        ),
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding:  EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width/50,vertical: MediaQuery.of(context).size.height/50),
           child: MaterialButton(
             color: kPrimaryColor,
-            minWidth:150,
-            height: 40,
-            onPressed: (){},
+            minWidth:MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height/16,
+            onPressed: (){
+              if(formKey.currentState!.validate()){
+                formKey.currentState!.save();
+              }
+              else{
+                autovalidateMode=AutovalidateMode.always;
+                setState((){});
+              }
+            },
           child: const Text('Add'),),
         )
       ],
