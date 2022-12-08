@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 
 import '../constant.dart';
 class CustomTextFiled extends StatelessWidget {
-  CustomTextFiled({
+  CustomTextFiled({Key? key,
     this.onChange ,
     required this.hint,
      this.maxLines=1,
-  }) ;
+  }) : super(key: key) ;
  final String ?hint;
   Function(String) ? onChange;
   final int maxLines;
@@ -17,15 +17,15 @@ class CustomTextFiled extends StatelessWidget {
       child: TextField(
         onChanged: onChange,
         maxLines: maxLines,
-        cursorColor: KPrimaryColor,
+        cursorColor: kPrimaryColor,
         decoration: InputDecoration(
         //  fillColor: SBackgroundColor,
           hintText: hint,
-          hintStyle: TextStyle(
-            color: KPrimaryColor
+          hintStyle:const TextStyle(
+            color: kPrimaryColor
           ),
           errorBorder:buildBorder(border: 16, color: Colors.red),
-          focusedBorder: buildBorder(border: 16, color: KPrimaryColor),
+          focusedBorder: buildBorder(border: 16, color: kPrimaryColor),
           enabledBorder: buildBorder(border: 16, color: Colors.white),
           border:buildBorder(border: 16, color: Colors.white)
         ),

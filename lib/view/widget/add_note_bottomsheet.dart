@@ -22,7 +22,7 @@ class AddNoteBottomSheet extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: MaterialButton(
-            color: KPrimaryColor,
+            color: kPrimaryColor,
             minWidth:150,
             height: 40,
             onPressed: (){},
