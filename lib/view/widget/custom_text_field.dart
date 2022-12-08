@@ -3,19 +3,31 @@ import 'package:flutter/material.dart';
 
 import '../constant.dart';
 class CustomTextFiled extends StatelessWidget {
-  CustomTextFiled({Key? key,
+  const CustomTextFiled({Key? key,
     this.onChange ,
     required this.hint,
      this.maxLines=1,
+    this.onSaved,
   }) : super(key: key) ;
+
  final String ?hint;
-  Function(String) ? onChange;
+ final void Function(String?)? onSaved;
+ final Function(String) ? onChange;
   final int maxLines;
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: TextField(
+      child: TextFormField(
         onChanged: onChange,
+        onSaved: onSaved,
+        validator: (val){
+          if(val?.isEmpty??true){
+            return 'Field is required';
+          }
+          else {
+            return null;
+          }
+        },
         maxLines: maxLines,
         cursorColor: kPrimaryColor,
         decoration: InputDecoration(
