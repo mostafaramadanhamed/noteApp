@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:whatsapp/cubit/notes_cubit.dart';
 import 'package:whatsapp/data/models/note_model.dart';
 import 'package:whatsapp/view/constant.dart';
 
@@ -24,7 +26,9 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
         fontFamily: 'Poppins'
       ),
-      home:const NotesView() ,
+      home:BlocProvider(
+          create: (BuildContext context)=>NotesCubit(),
+          child: const NotesView()) ,
     );
   }
 }
