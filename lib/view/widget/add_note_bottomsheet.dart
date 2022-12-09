@@ -16,7 +16,14 @@ class AddNoteBottomSheet extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal:MediaQuery.of(context).size.height/50),
       child: BlocConsumer<NotesCubit,NotesStates>(
 
-          listener: ( context, state)=> ,
+          listener: ( context, state){
+            if(state is AddNoteIErrorState){
+              print('Error ${state.error}');
+            }
+            if(state is AddNoteSuccessState){
+              Navigator.pop(context);
+            }
+          } ,
           builder: ( context, state) {
             return  ModalProgressHUD(
               inAsyncCall: state is AddNoteLoadingState ?true:false,
