@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:whatsapp/bloc_observer.dart';
 import 'package:whatsapp/cubit/notes_cubit.dart';
 import 'package:whatsapp/data/models/note_model.dart';
 import 'package:whatsapp/view/constant.dart';
@@ -8,6 +9,7 @@ import 'package:whatsapp/view/constant.dart';
 import 'view/notes_view.dart';
 
 void main() async{
+  Bloc.observer=MyBlocObserver();
   await Hive.initFlutter();
  await Hive.openBox(kBoxName);
  Hive.registerAdapter(NoteModelAdapter());
