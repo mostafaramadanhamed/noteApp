@@ -10,7 +10,7 @@ class AddNoteBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Padding(
       padding: EdgeInsets.symmetric(horizontal:MediaQuery.of(context).size.height/50),
-      child: AddNoteForm(),
+      child: const AddNoteForm(),
     );
   }
 }
