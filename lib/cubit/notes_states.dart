@@ -1,5 +1,5 @@
 abstract class NotesStates{}
-class InitialState extends NotesStates{}
+class NotesInitialState extends NotesStates{}
 // Add Note
 class AddNoteLoadingState extends NotesStates{}
 class AddNoteSuccessState extends NotesStates{}

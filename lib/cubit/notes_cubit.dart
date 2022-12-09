@@ -9,4 +9,5 @@ class NotesCubit extends Cubit<NotesStates>{
 
 
 
+
 }
