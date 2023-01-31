@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:whatsapp/cubit/notes_cubit.dart';
 import 'package:whatsapp/cubit/notes_states.dart';
 
@@ -24,12 +23,15 @@ class AddNoteBottomSheet extends StatelessWidget {
               Navigator.pop(context);
             }
           } ,
-          builder: ( context, state) {
-            return  Padding(
-              padding: EdgeInsets.symmetric(horizontal:MediaQuery.of(context).size.height/50),
-              child: const SingleChildScrollView(child:  AddNoteForm()),
+        builder: (context,state){
+            return AbsorbPointer(
+                absorbing: state is AddNoteLoadingState?true:false,
+                child: Padding(
+                padding: EdgeInsets.symmetric(horizontal:MediaQuery.of(context).size.height/50),
+          child: const SingleChildScrollView(child:  AddNoteForm()),
+          ),
             );
-          },
+        }
        ),
     );
   }

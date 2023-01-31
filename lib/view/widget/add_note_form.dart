@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:whatsapp/cubit/notes_cubit.dart';
+import 'package:whatsapp/cubit/notes_states.dart';
 import 'package:whatsapp/data/models/note_model.dart';
 import 'package:whatsapp/view/widget/button.dart';
 import 'custom_text_field.dart';
@@ -16,7 +17,6 @@ class AddNoteForm extends StatefulWidget {
 
 class _AddNoteFormState extends State<AddNoteForm> {
   final GlobalKey<FormState> formKey =GlobalKey();
-   final bool isLoading=true;
   AutovalidateMode autovalidateMode=AutovalidateMode.disabled;
   String ? title,subTitle;
   @override
@@ -40,19 +40,23 @@ class _AddNoteFormState extends State<AddNoteForm> {
           ),
           Padding(
             padding:  EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width/50,vertical: MediaQuery.of(context).size.height/50),
-            child:Button(
-              isLoading: true,
-              onTap: (){
-                if(formKey.currentState!.validate()){
-                  formKey.currentState!.save();
-                  var noteMode=NoteModel(title: title!, subTitle: subTitle!, date: DateTime.now().toString(), color: Colors.orange.value);
-                  BlocProvider.of<NotesCubit>(context).addNote(noteMode);
-                }
-                else{
-                  autovalidateMode=AutovalidateMode.always;
-                  setState((){});
-                }
-              },
+            child:BlocBuilder<NotesCubit,NotesStates>(
+              builder: (context, state) {
+                return Button(
+                  isLoading: state is AddNoteLoadingState?true:false,
+                  onTap: (){
+                    if(formKey.currentState!.validate()){
+                      formKey.currentState!.save();
+                      var noteMode=NoteModel(title: title!, subTitle: subTitle!, date: DateTime.now().toString(), color: Colors.orange.value);
+                      BlocProvider.of<NotesCubit>(context).addNote(noteMode);
+                    }
+                    else{
+                      autovalidateMode=AutovalidateMode.always;
+                      setState((){});
+                    }
+                  },
+                );
+              }
             ) ,
             ),
         ],
