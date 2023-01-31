@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:whatsapp/cubit/notes_cubit.dart';
-import 'package:whatsapp/cubit/notes_states.dart';
 import 'package:whatsapp/data/models/note_model.dart';
 
 import '../constant.dart';
@@ -41,23 +40,28 @@ class _AddNoteFormState extends State<AddNoteForm> {
           ),
           Padding(
             padding:  EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width/50,vertical: MediaQuery.of(context).size.height/50),
-            child: MaterialButton(
-              color: kPrimaryColor,
-              minWidth:MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height/16,
-              onPressed: (){
-                if(formKey.currentState!.validate()){
-                  formKey.currentState!.save();
-                  var noteMode=NoteModel(title: title!, subTitle: subTitle!, date: DateTime.now().toString(), color: Colors.orange.value);
-                  BlocProvider.of<NotesCubit>(context).addNote(noteMode);
-                }
-                else{
-                  autovalidateMode=AutovalidateMode.always;
-                  setState((){});
-                }
-              },
-              child: const Text('Add'),),
-          )
+            child: Container(
+              width: MediaQuery.of(context).size.width/2.3,
+              height:MediaQuery.of(context).size.width/13,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(14),
+                color: kPrimaryColor,
+              ),
+              child: InkWell(
+               borderRadius: BorderRadius.circular(14),
+              onTap:(){
+                if(
+    formKey.currentState!.validate()){
+    formKey.currentState!.save();
+    var noteMode=NoteModel(title: title!, subTitle: subTitle!, date: DateTime.now().toString(), color: Colors.orange.value);
+    BlocProvider.of<NotesCubit>(context).addNote(noteMode);
+    }
+    else{
+    autovalidateMode=AutovalidateMode.always;
+    setState((){});
+    }},
+              child: const Center(child: Text('Add'))),),
+            ),
         ],
       ),
     );
