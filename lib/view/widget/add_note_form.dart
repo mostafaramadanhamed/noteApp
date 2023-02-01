@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:whatsapp/cubit/notes_cubit.dart';
-import 'package:whatsapp/cubit/notes_states.dart';
+import 'package:whatsapp/cubit/add_notes/add_notes_cubit.dart';
+import 'package:whatsapp/cubit/add_notes/add_notes_states.dart';
 import 'package:whatsapp/data/models/note_model.dart';
 import 'package:whatsapp/view/widget/button.dart';
 import 'custom_text_field.dart';
@@ -40,7 +40,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
           ),
           Padding(
             padding:  EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width/50,vertical: MediaQuery.of(context).size.height/50),
-            child:BlocBuilder<NotesCubit,NotesStates>(
+            child:BlocBuilder<AddNotesCubit,AddNotesStates>(
               builder: (context, state) {
                 return Button(
                   isLoading: state is AddNoteLoadingState?true:false,
@@ -48,7 +48,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
                     if(formKey.currentState!.validate()){
                       formKey.currentState!.save();
                       var noteMode=NoteModel(title: title!, subTitle: subTitle!, date: DateTime.now().toString(), color: Colors.orange.value);
-                      BlocProvider.of<NotesCubit>(context).addNote(noteMode);
+                      BlocProvider.of<AddNotesCubit>(context).addNote(noteMode);
                     }
                     else{
                       autovalidateMode=AutovalidateMode.always;

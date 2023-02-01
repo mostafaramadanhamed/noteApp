@@ -1,12 +1,12 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:whatsapp/data/models/note_model.dart';
-import '../view/constant.dart';
-import 'notes_states.dart';
+import '../../view/constant.dart';
+import 'add_notes_states.dart';
 
-class NotesCubit extends Cubit<NotesStates>{
+class AddNotesCubit extends Cubit<AddNotesStates>{
 
-  NotesCubit() : super(NotesInitialState());
+  AddNotesCubit() : super(AddNotesInitialState());
 
 addNote(NoteModel note)async{
   emit(AddNoteLoadingState());

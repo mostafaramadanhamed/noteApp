@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:whatsapp/cubit/notes_cubit.dart';
-import 'package:whatsapp/cubit/notes_states.dart';
+import 'package:whatsapp/cubit/add_notes/add_notes_cubit.dart';
+import 'package:whatsapp/cubit/add_notes/add_notes_states.dart';
 
 import 'add_note_form.dart';
 
@@ -12,8 +12,8 @@ class AddNoteBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  BlocProvider(
-      create: (context)=>NotesCubit(),
-      child: BlocConsumer<NotesCubit,NotesStates>(
+      create: (context)=>AddNotesCubit(),
+      child: BlocConsumer<AddNotesCubit,AddNotesStates>(
 
           listener: ( context, state){
             if(state is AddNoteIErrorState){
