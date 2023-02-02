@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:whatsapp/cubit/notes/notes_cubit.dart';
 import 'package:whatsapp/data/models/note_model.dart';
 import 'package:whatsapp/view/edit_notes_view.dart';
 
@@ -39,6 +41,7 @@ final NoteModel note;
               ),
               trailing: IconButton(onPressed: (){
                 note.delete();
+                BlocProvider.of<NotesCubit>(context).fetchAllNotes();
               },
                   icon:const Icon (FontAwesomeIcons.trash,color: Colors.black,size: 25,),),
             ),

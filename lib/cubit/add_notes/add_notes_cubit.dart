@@ -13,6 +13,7 @@ addNote(NoteModel note)async{
   try{
     var notesBox=Hive.box<NoteModel>(kBoxName);
     await notesBox.add(note);
+    print(note.title);
     emit(AddNoteSuccessState());
   }
       catch(ex){

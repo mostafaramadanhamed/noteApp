@@ -3,7 +3,7 @@ abstract class NotesState{}
 
 class NoteInitialState extends NotesState{}
 // class NoteLoadingState extends NotesState{}
-// class NoteSuccessState extends NotesState{
+ class NoteSuccessState extends NotesState{}
 //   final List<NoteModel>notes;
 //
 //   NoteSuccessState(this.notes);
