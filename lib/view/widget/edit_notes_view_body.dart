@@ -22,11 +22,11 @@ class EditNotesViewBody extends StatelessWidget {
           SizedBox(
             height: MediaQuery.of(context).size.height/30,
           ),
-          CustomTextFiled(hint: 'Title',),
+          const CustomTextFiled(hint: 'Title',),
           SizedBox(
             height: MediaQuery.of(context).size.height/30,
           ),
-          CustomTextFiled(hint: 'Desc',maxLines: 5,),
+          const CustomTextFiled(hint: 'Desc',maxLines: 5,),
 
         ],
       ),
