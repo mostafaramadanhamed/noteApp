@@ -19,7 +19,7 @@ final NoteModel note;
         onTap: ()=>Navigator.push(
             context, MaterialPageRoute(
             builder: (context)
-            =>const EditNotesView(),
+            => EditNotesView(note: note,),
         ),
         ),
         child: Container(

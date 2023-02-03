@@ -7,7 +7,7 @@ import '../../view/constant.dart';
 
 class NotesCubit extends Cubit<NotesState>{
   NotesCubit():super(NoteInitialState());
-  List<NoteModel>?notes;
+  List<NoteModel>?notes=[];
   fetchAllNotes() {
       var notesBox=Hive.box<NoteModel>(kBoxName);
    notes =notesBox.values.toList();

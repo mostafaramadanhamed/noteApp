@@ -37,9 +37,9 @@ class CustomTextFiled extends StatelessWidget {
             color: kPrimaryColor
           ),
           errorBorder:buildBorder(border: 16, color: Colors.red),
-          focusedBorder: buildBorder(border: 16, color: kPrimaryColor),
-          enabledBorder: buildBorder(border: 16, color: Colors.white),
-          border:buildBorder(border: 16, color: Colors.white)
+          focusedBorder: buildBorder(border: 16, color: Colors.white),
+          enabledBorder: buildBorder(border: 16, color: kPrimaryColor),
+          border:buildBorder(border: 16, color: Colors.grey)
         ),
       ),
     );
