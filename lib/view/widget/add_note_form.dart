@@ -38,10 +38,10 @@ class _AddNoteFormState extends State<AddNoteForm> {
             subTitle=val;
           },),
           SizedBox(
-            height: MediaQuery.of(context).size.height/20,
+            height: MediaQuery.of(context).size.height/25,
           ),
           //color
-          ColorListView(),
+          const ColorListView(),
           //button
           Padding(
             padding:  EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width/50,vertical: MediaQuery.of(context).size.height/50),

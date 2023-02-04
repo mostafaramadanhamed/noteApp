@@ -10,7 +10,7 @@ final bool isLoading;
   Widget build(BuildContext context) {
     return  Container(
       width: MediaQuery.of(context).size.width/2.3,
-      height:MediaQuery.of(context).size.width/13,
+      height:MediaQuery.of(context).size.width/11,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(14),
         color:kPrimaryColor,
@@ -19,6 +19,10 @@ final bool isLoading;
           //borderRadius: BorderRadius.circular(14),
           onTap:onTap,
           child:  isLoading ?const CircularProgressIndicator(color: Colors.black,):
-          const Center(child: Text('Add'))),);
+           Center(child:  Text('Add',style: TextStyle(
+            color: Colors.grey.shade900,
+            fontWeight: FontWeight.w600,
+            fontSize: 17
+          ),),)),);
   }
 }
