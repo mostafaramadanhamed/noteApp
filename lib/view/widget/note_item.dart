@@ -10,18 +10,40 @@ class NoteItem extends StatelessWidget {
 final NoteModel note;
   @override
   Widget build(BuildContext context) {
-    return Dismissible(
-      key: Key(note.title),
-      onDismissed: (direction){
-        note.delete();
-      },
-      child: GestureDetector(
-        onTap: ()=>Navigator.push(
-            context, MaterialPageRoute(
-            builder: (context)
-            => EditNotesView(note: note,),
-        ),
-        ),
+    return GestureDetector(
+      onTap: ()=>Navigator.push(
+          context, MaterialPageRoute(
+          builder: (context)
+          => EditNotesView(note: note,),
+      ),
+      ),
+      child: Dismissible(
+        key: Key(note.date),
+        onDismissed: (direction){
+          note.delete();
+          ScaffoldMessenger.of(context).showSnackBar( SnackBar(
+            content:  Container(
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: Colors.greenAccent,
+                border: Border.all(color: Colors.green, width: 3),
+                boxShadow: const [
+                  BoxShadow(
+                    color: Color(0x19000000),
+                    spreadRadius: 2.0,
+                    blurRadius: 8.0,
+                    offset: Offset(2, 4),
+                  )
+                ],
+                borderRadius: BorderRadius.circular(4),
+              ),
+              child:const Text('Note was deleted successfully'),
+            ),
+            backgroundColor: Colors.grey.shade800,
+            elevation: 0,
+            padding:  EdgeInsets.zero,
+          ),);
+        },
         child: Container(
           decoration: BoxDecoration(
             color:  Color(note.color),

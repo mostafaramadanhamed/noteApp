@@ -5,6 +5,7 @@ import 'package:whatsapp/cubit/add_notes/add_notes_cubit.dart';
 import 'package:whatsapp/cubit/add_notes/add_notes_states.dart';
 import 'package:whatsapp/data/models/note_model.dart';
 import 'package:whatsapp/view/widget/button.dart';
+import 'color_list_view.dart';
 import 'custom_text_field.dart';
 
 class AddNoteForm extends StatefulWidget {
@@ -39,6 +40,9 @@ class _AddNoteFormState extends State<AddNoteForm> {
           SizedBox(
             height: MediaQuery.of(context).size.height/20,
           ),
+          //color
+          ColorListView(),
+          //button
           Padding(
             padding:  EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width/50,vertical: MediaQuery.of(context).size.height/50),
             child:BlocBuilder<AddNotesCubit,AddNotesStates>(
@@ -73,3 +77,4 @@ class _AddNoteFormState extends State<AddNoteForm> {
     );
   }
 }
+
