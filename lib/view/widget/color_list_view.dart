@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:whatsapp/cubit/add_notes/add_notes_cubit.dart';
 
 import '../constant.dart';
 
@@ -42,6 +44,7 @@ class _ColorListViewState extends State<ColorListView> {
           child: GestureDetector(
             onTap: (){
               currentIndex=index;
+              BlocProvider.of<AddNotesCubit>(context).color=colors[index];
               setState((){});
             },
             child: ColorItem(
