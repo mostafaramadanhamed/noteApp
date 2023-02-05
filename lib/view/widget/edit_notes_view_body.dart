@@ -7,7 +7,7 @@ import 'package:whatsapp/view/widget/custom_appbar.dart';
 import 'package:whatsapp/view/widget/custom_text_field.dart';
 
 import '../constant.dart';
-import 'color_list_view.dart';
+import 'edit_note_color_list_view.dart';
 import 'note_item.dart';
 
 class EditNotesViewBody extends StatefulWidget {
@@ -62,44 +62,6 @@ class _EditNotesViewBodyState extends State<EditNotesViewBody> {
              maxLines: 5,),
           EditNotesColorList(note: widget.note,),
         ],
-      ),
-    );
-  }
-}
-class EditNotesColorList extends StatefulWidget {
-  const EditNotesColorList({Key? key, required this.note}) : super(key: key);
-
-  final NoteModel note;
-
-  @override
-  State<EditNotesColorList> createState() => _EditNotesColorListState();
-}
-
-class _EditNotesColorListState extends State<EditNotesColorList> {
-   int currentIndex=0;
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.width/6,
-      child: ListView.builder(
-        itemBuilder: (context,index)=>Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 6),
-          child: GestureDetector(
-            onTap: (){
-              currentIndex=index;
-              widget.note.color=kColors[index].value;
-            //  BlocProvider.of<NotesCubit>(context).color=kColors[index];
-              setState((){});
-            },
-            child: ColorItem(
-              isSelected: currentIndex==index,
-              color: kColors[index],
-            ),
-          ),
-        ),
-        itemCount: kColors.length,
-        scrollDirection: Axis.horizontal,
-        physics: const BouncingScrollPhysics(),
       ),
     );
   }
