@@ -36,9 +36,9 @@ class CustomTextFiled extends StatelessWidget {
           hintStyle:const TextStyle(
             color: kPrimaryColor
           ),
-          errorBorder:buildBorder(border: 16, color: Colors.red),
-          focusedBorder: buildBorder(border: 16, color: Colors.white),
-          enabledBorder: buildBorder(border: 16, color: kPrimaryColor1),
+          errorBorder:buildBorder(border: 16, color: kErrorField),
+          focusedBorder: buildBorder(border: 16, color: kPrimaryColor),
+          enabledBorder: buildBorder(border: 16, color: kEnableField),
           border:buildBorder(border: 16, color: Colors.grey)
         ),
       ),

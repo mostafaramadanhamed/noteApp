@@ -71,7 +71,7 @@ SnackBar buildSnackBar({required String text,required Color color}) {
       margin: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: color,
-        border: Border.all(color: Colors.white70, width: 1),
+        border: Border.all(color: Colors.black54, width: 1),
         boxShadow: const [
           BoxShadow(
             color: Color(0x19000000),

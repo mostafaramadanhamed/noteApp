@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 
 const kPrimaryColor=Color(0xff000000);
 const kPrimaryColor1=Color(0xff62FCD7);
+const kErrorField=Colors.red;
+const kEnableField=Colors.grey;
+
 const kBoxName='notes_box';
 List<Color>kColors=const [
   Color(0xffFFC2C7),

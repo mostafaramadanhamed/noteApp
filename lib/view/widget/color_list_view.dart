@@ -11,8 +11,8 @@ final Color color;
   @override
   Widget build(BuildContext context) {
     return isSelected?CircleAvatar(
-      radius: MediaQuery.of(context).size.width/12,
-      backgroundColor: Colors.white,
+      radius: MediaQuery.of(context).size.width/13,
+      backgroundColor: Colors.black.withOpacity(.7),
       child: CircleAvatar(
         backgroundColor: color,
         radius: MediaQuery.of(context).size.width/14,

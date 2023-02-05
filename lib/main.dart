@@ -23,22 +23,24 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
+   // var cubit= BlocProvider.of<NotesCubit>(context);
 
+  return BlocProvider(
       create:(context) => NotesCubit(),
       child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          brightness: Brightness.dark,
-          scaffoldBackgroundColor: Colors.blue.withOpacity(.1),
-          floatingActionButtonTheme: const FloatingActionButtonThemeData(
-            backgroundColor:kPrimaryColor1,
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+              brightness: Brightness.light,
+              // scaffoldBackgroundColor: Colors.blue.withOpacity(.1),
+              floatingActionButtonTheme: const FloatingActionButtonThemeData(
+                backgroundColor:kPrimaryColor1,
+                foregroundColor:kPrimaryColor,
+              ),
+              fontFamily: 'Poppins'
           ),
-
-          fontFamily: 'Poppins'
+       //   themeMode:BlocProvider.of<NotesCubit>(context).isDark ?ThemeMode.dark:ThemeMode.light,
+          home:const NotesView(),
         ),
-        home:const NotesView(),
-      ),
     );
   }
 }
