@@ -29,7 +29,7 @@ class CustomTextFiled extends StatelessWidget {
           }
         },
         maxLines: maxLines,
-        cursorColor: kPrimaryColor1,
+        cursorColor: kPrimaryColor,
         decoration: InputDecoration(
         //  fillColor: SBackgroundColor,
           hintText: hint,

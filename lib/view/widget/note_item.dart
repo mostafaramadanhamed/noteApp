@@ -86,6 +86,7 @@ SnackBar buildSnackBar({required String text,required Color color}) {
         style:  const TextStyle(
           fontSize: 15,
           fontWeight: FontWeight.w500,
+          color: kPrimaryColor
         ),
       ),
     ),

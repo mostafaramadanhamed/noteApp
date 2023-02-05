@@ -60,6 +60,9 @@ class _EditNotesViewBodyState extends State<EditNotesViewBody> {
              },
              hint: widget.note.subTitle,
              maxLines: 5,),
+          SizedBox(
+            height: MediaQuery.of(context).size.height/30,
+          ),
           EditNotesColorList(note: widget.note,),
         ],
       ),
