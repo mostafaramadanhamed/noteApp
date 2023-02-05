@@ -5,6 +5,8 @@ import 'package:whatsapp/cubit/notes/notes_cubit.dart';
 import 'package:whatsapp/data/models/note_model.dart';
 import 'package:whatsapp/view/edit_notes_view.dart';
 
+import '../constant.dart';
+
 class NoteItem extends StatelessWidget {
   const NoteItem({Key? key, required this.note}) : super(key: key);
 final NoteModel note;
@@ -42,33 +44,7 @@ final NoteModel note;
               ),
               trailing: IconButton(onPressed: (){
                 note.delete();
-                ScaffoldMessenger.of(context).showSnackBar( SnackBar(
-                  content:  Container(
-                    padding: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      color: Colors.tealAccent.shade100,
-                      border: Border.all(color: Colors.teal, width: 3),
-                      boxShadow: const [
-                        BoxShadow(
-                          color: Color(0x19000000),
-                          spreadRadius: 2.0,
-                          blurRadius: 8.0,
-                          offset: Offset(2, 4),
-                        )
-                      ],
-                      borderRadius: BorderRadius.circular(4),
-                    ),
-                    child:const Text('Note was deleted successfully',
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                  backgroundColor: Colors.grey.shade800,
-                  elevation: 0,
-                  padding:  EdgeInsets.zero,
-                ),);
+                ScaffoldMessenger.of(context).showSnackBar( buildSnackBar(text: 'Note was deleted successfully',color: kColors[11]),);
                 BlocProvider.of<NotesCubit>(context).fetchAllNotes();
               },
                   icon:const Icon (FontAwesomeIcons.trash,color: Colors.black,size: 25,),),
@@ -85,4 +61,36 @@ final NoteModel note;
       ),
     );
   }
+
+
+}
+SnackBar buildSnackBar({required String text,required Color color}) {
+  return SnackBar(
+    content:  Container(
+      padding: const EdgeInsets.all(8),
+      margin: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: color,
+        border: Border.all(color: Colors.white70, width: 1),
+        boxShadow: const [
+          BoxShadow(
+            color: Color(0x19000000),
+            spreadRadius: 2.0,
+            blurRadius: 8.0,
+            offset: Offset(2, 4),
+          )
+        ],
+        borderRadius: BorderRadius.circular(15),
+      ),
+      child: Text(text,
+        style:  const TextStyle(
+          fontSize: 15,
+          fontWeight: FontWeight.w500,
+        ),
+      ),
+    ),
+    backgroundColor: Colors.transparent,
+    elevation: 0,
+    padding:  EdgeInsets.zero,
+  );
 }

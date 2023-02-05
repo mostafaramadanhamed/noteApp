@@ -30,6 +30,11 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           brightness: Brightness.dark,
+          scaffoldBackgroundColor: Colors.blue.withOpacity(.1),
+          floatingActionButtonTheme: const FloatingActionButtonThemeData(
+            backgroundColor:kPrimaryColor1,
+          ),
+
           fontFamily: 'Poppins'
         ),
         home:const NotesView(),

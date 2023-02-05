@@ -6,6 +6,10 @@ import 'package:whatsapp/data/models/note_model.dart';
 import 'package:whatsapp/view/widget/custom_appbar.dart';
 import 'package:whatsapp/view/widget/custom_text_field.dart';
 
+import '../constant.dart';
+import 'color_list_view.dart';
+import 'note_item.dart';
+
 class EditNotesViewBody extends StatefulWidget {
   const EditNotesViewBody({Key? key, required this.note}) : super(key: key);
 final NoteModel note;
@@ -31,6 +35,7 @@ class _EditNotesViewBodyState extends State<EditNotesViewBody> {
             widget.note.title=title ?? widget.note.title;
             widget.note.subTitle=desc ?? widget.note.subTitle;
             widget.note.save();
+            ScaffoldMessenger.of(context).showSnackBar( buildSnackBar(text: 'Note was edited successfully',color: kColors[8]),);
             BlocProvider.of<NotesCubit>(context).fetchAllNotes();
             Navigator.pop(context);
           },
@@ -55,9 +60,48 @@ class _EditNotesViewBodyState extends State<EditNotesViewBody> {
              },
              hint: widget.note.subTitle,
              maxLines: 5,),
-
+          EditNotesColorList(note: widget.note,),
         ],
       ),
     );
   }
 }
+class EditNotesColorList extends StatefulWidget {
+  const EditNotesColorList({Key? key, required this.note}) : super(key: key);
+
+  final NoteModel note;
+
+  @override
+  State<EditNotesColorList> createState() => _EditNotesColorListState();
+}
+
+class _EditNotesColorListState extends State<EditNotesColorList> {
+   int currentIndex=0;
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: MediaQuery.of(context).size.width/6,
+      child: ListView.builder(
+        itemBuilder: (context,index)=>Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 6),
+          child: GestureDetector(
+            onTap: (){
+              currentIndex=index;
+              widget.note.color=kColors[index].value;
+            //  BlocProvider.of<NotesCubit>(context).color=kColors[index];
+              setState((){});
+            },
+            child: ColorItem(
+              isSelected: currentIndex==index,
+              color: kColors[index],
+            ),
+          ),
+        ),
+        itemCount: kColors.length,
+        scrollDirection: Axis.horizontal,
+        physics: const BouncingScrollPhysics(),
+      ),
+    );
+  }
+}
+

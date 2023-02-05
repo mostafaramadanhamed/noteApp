@@ -29,7 +29,7 @@ class CustomTextFiled extends StatelessWidget {
           }
         },
         maxLines: maxLines,
-        cursorColor: kPrimaryColor,
+        cursorColor: kPrimaryColor1,
         decoration: InputDecoration(
         //  fillColor: SBackgroundColor,
           hintText: hint,
@@ -38,7 +38,7 @@ class CustomTextFiled extends StatelessWidget {
           ),
           errorBorder:buildBorder(border: 16, color: Colors.red),
           focusedBorder: buildBorder(border: 16, color: Colors.white),
-          enabledBorder: buildBorder(border: 16, color: kPrimaryColor),
+          enabledBorder: buildBorder(border: 16, color: kPrimaryColor1),
           border:buildBorder(border: 16, color: Colors.grey)
         ),
       ),

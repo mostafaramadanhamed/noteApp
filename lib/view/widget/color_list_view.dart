@@ -44,16 +44,16 @@ class _ColorListViewState extends State<ColorListView> {
           child: GestureDetector(
             onTap: (){
               currentIndex=index;
-              BlocProvider.of<AddNotesCubit>(context).color=colors[index];
+              BlocProvider.of<AddNotesCubit>(context).color=kColors[index];
               setState((){});
             },
             child: ColorItem(
               isSelected: currentIndex==index,
-              color: colors[index],
+              color: kColors[index],
             ),
           ),
         ),
-        itemCount: colors.length,
+        itemCount: kColors.length,
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
       ),

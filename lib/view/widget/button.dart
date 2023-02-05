@@ -20,7 +20,7 @@ final bool isLoading;
           onTap:onTap,
           child:  isLoading ?const CircularProgressIndicator(color: Colors.black,):
            Center(child:  Text('Add',style: TextStyle(
-            color: Colors.grey.shade900,
+            color: kPrimaryColor1,
             fontWeight: FontWeight.w600,
             fontSize: 17
           ),),)),);

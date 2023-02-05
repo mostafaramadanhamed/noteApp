@@ -3,8 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:whatsapp/cubit/add_notes/add_notes_cubit.dart';
 import 'package:whatsapp/cubit/add_notes/add_notes_states.dart';
 import 'package:whatsapp/cubit/notes/notes_cubit.dart';
+import 'package:whatsapp/view/constant.dart';
 
 import 'add_note_form.dart';
+import 'note_item.dart';
 
 
 class AddNoteBottomSheet extends StatelessWidget {
@@ -22,6 +24,7 @@ class AddNoteBottomSheet extends StatelessWidget {
             }
             if(state is AddNoteSuccessState){
               BlocProvider.of<NotesCubit>(context).fetchAllNotes();
+              ScaffoldMessenger.of(context).showSnackBar( buildSnackBar(text: 'Note was added successfully',color: kColors[3]),);
               Navigator.pop(context);
             }
           } ,
