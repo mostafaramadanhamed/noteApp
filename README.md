@@ -1,16 +1,8 @@
-# whatsapp
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# note app
+pack
+  font_awesome_flutter: ^10.2.1
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  flutter_bloc: ^8.1.1
+  modal_progress_hud_nsn: ^0.3.0
+  intl: ^0.18.0
